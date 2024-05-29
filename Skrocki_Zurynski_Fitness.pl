@@ -27,19 +27,19 @@ cel(zbudowanie_miesni,sila,'Budowanie masy miesniowej przez cwiczenia silowe').
 cel(poprawa_kondycji,kardio,'Poprawa wydolnosci przez cwiczenia kardio').
 cel(poprawa_elastycznosci,elastycznosc,'Poprawa zakresu ruchu przez cwiczenia rozciagajace').
 
-%Regula pokazuj¹ca najlepsze cwiczenia dla danego celu
+%Regula pokazujÄ…ca najlepsze cwiczenia dla danego celu
 najlepsze_cwiczenie(Cel, Cwiczenie) :-
     cel(Cel,Typ,_),
     cwiczenie(Cwiczenie,Typ,_).
 
-%Regula pokazuj¹ca iloœæ spalonych kalorii przez dane cwiczenie
+%Regula pokazujÄ…ca iloÅ›Ä‡ spalonych kalorii przez dane cwiczenie
 spalone_kalorie(Cwiczenie, Kalorie) :-
     cwiczenie(Cwiczenie, _, KalorieNaGodzine),
     Kalorie is KalorieNaGodzine.
-%Regula pokazuj¹ca wszystkie cwiczenia
+%Regula pokazujÄ…ca wszystkie cwiczenia
 wszystkie_cwiczenia(ListaCwiczen) :-
     findall(Nazwa, cwiczenie(Nazwa,_,_), ListaCwiczen).
-%Regula pokazuj¹ca typ cwiczenia
+%Regula pokazujÄ…ca typ cwiczenia
 typ_cwiczenia(Nazwa,Typ) :-
     cwiczenie(Nazwa, Typ, _).
 
@@ -125,14 +125,9 @@ bmi(Waga, Wzrost, BMI, Komentarz) :-
     BMI >= 24.9, BMI < 29.9 -> Komentarz = 'Nadwaga';
     BMI >= 29.9 -> Komentarz = 'Otylosc').
 
-%Regula sprawdzajaca czy twoje cwiczenie powoduje uczucie olimpijczyka.
-uczucie_olimpijczyka(Trening) :-
-    cwiczenie(Trening, _, _),
-    writeln('Prawdziwy olimpijczyk (sum)!').
-
 %Regula sprawdzajaca czy uda ci sie uciec przed wscieklym leniwcem.
-ucieczka_przed_leniwcem(Prêdkoœæ) :-
-    Prêdkoœæ > 0.5,
+ucieczka_przed_leniwcem(PrÄ™dkoÅ›Ä‡) :-
+    PrÄ™dkoÅ›Ä‡ > 0.5,
     writeln('Twoje bieganie sprawi, ze bedziesz mogl uciec przed wscieklym leniwcem!').
 
 %Regula sprawdzajaca czy jestes w stanie wygrac z szopem praczem.
@@ -141,13 +136,13 @@ wygrana_w_arm_wrestling(Obwod_bicepsu) :-
     writeln('Twoje bicepsy sa gotowe na arm wrestling z szopem praczem!').
 
 %Regula sprawdzajaca czy uda nam sie zlapac tuktuka w Indiach
-zlap_autobus(Prêdkoœæ) :-
-    Prêdkoœæ > 5,
+zlap_autobus(PrÄ™dkoÅ›Ä‡) :-
+    PrÄ™dkoÅ›Ä‡ > 5,
     writeln('Masz szanse zlapac uciekajacego tuktuka!').
 
 %Regula sprawdzajaca czy jestesmy szybszy niz przecietne zombie.
-szybszy_od_zombie(Prêdkoœæ) :-
-    Prêdkoœæ > 3,
+szybszy_od_zombie(PrÄ™dkoÅ›Ä‡) :-
+    PrÄ™dkoÅ›Ä‡ > 3,
     writeln('Jestes szybszy niz zombie, gratulacje!').
 
 
